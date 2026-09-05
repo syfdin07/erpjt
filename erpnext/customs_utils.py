@@ -1,6 +1,16 @@
 import frappe
 
 REPORTS = [
+    "Laporan Pemasukan Barang",
+    "Laporan Pengeluaran Barang",
+    "Laporan Posisi WIP",
+    "Laporan Mutasi Bahan Baku/ Bahan Penolong",
+    "Laporan Mutasi Barang Jadi",
+    "Laporan Mutasi Mesin dan Peralatan",
+    "Laporan Barang Reject dan Scrap",
+]
+
+OLD_REPORTS = [
     "Laporan Pemasukan Barang Per Dokumen Pabean",
     "Laporan Pengeluaran Barang Per Dokumen Pabean",
     "Laporan Posisi WIP",
@@ -9,6 +19,25 @@ REPORTS = [
     "Laporan Pertanggungjawaban Mutasi Mesin dan Peralatan",
     "Laporan Pertanggungjawaban Barang Reject dan Scrap",
 ]
+
+def rename_customs_reports():
+    renamed = []
+    for old, new in zip(OLD_REPORTS, REPORTS):
+        if old == new:
+            continue
+        if frappe.db.exists("Report", old):
+            frappe.rename_doc("Report", old, new, force=True)
+            renamed.append((old, new))
+
+    ws = frappe.get_doc("Workspace", "Customs")
+    for link in ws.links:
+        for old, new in renamed:
+            if link.label == old:
+                link.label = new
+                link.link_to = new
+    ws.save(ignore_permissions=True)
+    frappe.db.commit()
+    return {"renamed": renamed}
 
 def make_customs_reports_and_menu():
     created = []
