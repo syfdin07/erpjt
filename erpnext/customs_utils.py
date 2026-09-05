@@ -1,6 +1,16 @@
 import frappe
 
 REPORTS = [
+    "Pemasukan Barang",
+    "Pengeluaran Barang",
+    "Posisi WIP",
+    "Mutasi Bahan Baku/ Bahan Penolong",
+    "Mutasi Barang Jadi",
+    "Mutasi Mesin dan Peralatan",
+    "Barang Reject dan Scrap",
+]
+
+OLD_REPORTS = [
     "Laporan Pemasukan Barang",
     "Laporan Pengeluaran Barang",
     "Laporan Posisi WIP",
@@ -8,16 +18,6 @@ REPORTS = [
     "Laporan Mutasi Barang Jadi",
     "Laporan Mutasi Mesin dan Peralatan",
     "Laporan Barang Reject dan Scrap",
-]
-
-OLD_REPORTS = [
-    "Laporan Pemasukan Barang Per Dokumen Pabean",
-    "Laporan Pengeluaran Barang Per Dokumen Pabean",
-    "Laporan Posisi WIP",
-    "Laporan Pertanggungjawaban Mutasi Bahan Baku/ Bahan Penolong",
-    "Laporan Pertanggungjawaban Mutasi Barang Jadi",
-    "Laporan Pertanggungjawaban Mutasi Mesin dan Peralatan",
-    "Laporan Pertanggungjawaban Barang Reject dan Scrap",
 ]
 
 def rename_customs_reports():
