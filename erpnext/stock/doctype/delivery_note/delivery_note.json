@@ -1343,6 +1343,34 @@
    "label": "More Info"
   },
   {
+   "fieldname": "customs_section",
+   "fieldtype": "Section Break",
+   "label": "Dokumen Pabean",
+   "collapsible": 0
+  },
+  {
+   "fieldname": "jenis_dokumen_pabean",
+   "fieldtype": "Select",
+   "label": "Jenis Dokumen",
+   "options": "\nBC 25\nBC 261\nBC 27 OUT\nBC 30\nBC 41\nBC 33"
+  },
+  {
+   "fieldname": "tanggal_pendaftaran",
+   "fieldtype": "Date",
+   "label": "Tanggal Pendaftaran"
+  },
+  {
+   "fieldname": "column_break_pabean",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "nomor_pendaftaran",
+   "fieldtype": "Data",
+   "label": "Nomor Pendaftaran",
+   "length": 6,
+   "description": "6 digit angka"
+  },
+  {
    "fieldname": "connections_tab",
    "fieldtype": "Tab Break",
    "label": "Connections",
